@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You Are Loved 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #8B0000 0%, #4A0000 50%, #8B0000 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            color: #fff;
+        }
+
+        /* Animated floating hearts background */
+        .heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            opacity: 0;
+            animation: float-up 15s infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Wine glass animation */
+        .wine-glass {
+            position: absolute;
+            font-size: 24px;
+            opacity: 0;
+            animation: float-diagonal 20s infinite;
+        }
+
+        @keyframes float-diagonal {
+            0% {
+                transform: translate(-100px, 100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.4;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translate(100vw, -100vh) rotate(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Sparkle effect */
+        .sparkle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: sparkle 3s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Main content container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Header with pulsing heart */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .main-heart {
+            font-size: 80px;
+            display: inline-block;
+            animation: pulse-heart 1.5s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.8));
+        }
+
+        @keyframes pulse-heart {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        .main-title {
+            font-size: 48px;
+            font-weight: bold;
+            margin-top: 20px;
+            background: linear-gradient(45deg, #FFB6C1, #FFF, #FFB6C1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 10px rgba(255, 182, 193, 0.5));
+            }
+            50% {
+                filter: drop-shadow(0 0 20px rgba(255, 182, 193, 0.9));
+            }
+        }
+
+        
+        .message-card {
+            background: rgba(139, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 182, 193, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 700px;
+        }
+
+        .message-text {
+            font-size: 20px;
+            line-height: 1.8;
+            text-align: center;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #FFE4E1;
+        }
+
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #FFB6C1;
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 4s steps(60, end), blink-caret 0.75s step-end infinite;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from, to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: #FFB6C1;
+            }
+        }
+
+        .typewriter-container {
+            display: block;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        
+        .delayed-message {
+            opacity: 0;
+            animation: fade-in 1s forwards;
+        }
+
+        .delayed-message:nth-child(1) {
+            animation-delay: 4.5s;
+        }
+
+        .delayed-message:nth-child(2) {
+            animation-delay: 5.5s;
+        }
+
+        .delayed-message:nth-child(3) {
+            animation-delay: 6.5s;
+        }
+
+        .delayed-message:nth-child(4) {
+            animation-delay: 7.5s;
+        }
+
+        @keyframes fade-in {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Quote section */
+        .quote {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #FFB6C1;
+            padding: 20px;
+            margin: 30px 0;
+            font-size: 18px;
+            font-style: italic;
+            border-radius: 10px;
+        }
+
+       
+        .love-button {
+            background: linear-gradient(135deg, #DC143C, #8B0000);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 18px;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-left: 150px;
+
+        }
+
+        .love-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(220, 20, 60, 0.6);
+        }
+
+        .love-button:active {
+            transform: translateY(0);
+        }
+
+        /* Hidden message */
+        .hidden-message {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 1s ease;
+            margin-top: 20px;
+
+        }
+
+        .hidden-message.show {
+            opacity: 1;
+            max-height: 500px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 14px;
+            opacity: 0.8;
+            padding-bottom: 20px;
+        }
+
+        .small-hearts {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        /* Responsive design for iPhone 11 Pro Max and other devices */
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 36px;
+            }
+
+            .main-heart {
+                font-size: 60px;
+            }
+
+            .message-card {
+                padding: 25px;
+            }
+
+            .message-text {
+                font-size: 18px;
+            }
+
+            .quote {
+                font-size: 16px;
+            }
+
+            .love-button {
+                padding: 12px 30px;
+                font-size: 16px;
+                margin-left: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            .main-title {
+                font-size: 28px;
+            }
+
+            .main-heart {
+                font-size: 50px;
+            }
+
+            .message-text {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+
+            .message-card {
+                padding: 20px;
+            }
+
+            .typewriter {
+                white-space: normal;
+                border-right: none;
+                animation: none;
+            }
+        }
+
+        /* Ensure text remains readable on all devices */
+        @media (max-width: 414px) {
+            .typewriter-container {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background elements -->
+    <div class="heart-container" id="heartContainer"></div>
+
+    <!-- Main content -->
+    <div class="container">
+        <div class="header">
+            <div class="main-heart">💝</div>
+            <h1 class="main-title">You Are Loved</h1>
+        </div>
+
+        <div class="message-card">
+            <div class="typewriter-container">
+                <p class="message-text typewriter">
+                    To Whoever Reading This.....
+                </p>
+            </div>
+
+            <p class="message-text delayed-message">
+                Today, the world celebrates love in pairs, but your worth isn't measured by whether someone holds your hand tonight.
+            </p>
+
+            <p class="message-text delayed-message">
+                You are whole, complete, and deserving of every bit of love this universe has to offer—starting with the love you give yourself.
+            </p>
+
+            <div class="quote delayed-message">
+                "The relationship with yourself sets the tone for every other relationship you have." <br>
+                <small>— Robert Holden</small>
+            </div>
+
+            <p class="message-text delayed-message">
+                You are loved by the sunrise that greets you each morning, by the friends who text you randomly, by the strangers whose lives you've touched without even knowing. You are loved in ways you can't see, by people who are grateful you exist.
+            </p>
+
+            <button class="love-button" onclick="revealMessage()">
+                Click for a special reminder ✨
+            </button>
+
+            <div class="hidden-message" id="hiddenMessage">
+                <p class="message-text" style="margin-top: 20px; color: #FFD700;">
+                    ✨ Remember this always: Being alone doesn't equal being lonely. 
+                    It means you're strong enough to wait for what you truly deserve. 
+                    Your story isn't finished—it's still being written, one beautiful chapter at a time. 
+                    And right now, in this very moment, you are exactly where you need to be. 
+                </p>
+                <p class="message-text" style="color: #FFD700;">
+                    Happy Valentine's Day, beautiful soul. The world is better because you're in it. 💕
+                </p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>
+                <span class="small-hearts">💕</span>
+                Made with love for every single soul who needs to hear this
+                <span class="small-hearts">💕</span>
+            </p>
+            <p style="margin-top: 10px; font-size: 12px;">
+                You deserve all the love in the world, today and every day.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Floating Hearts
+        function createHeart() {
+            const heartContainer = document.getElementById('heartContainer');
+            const heart = document.createElement('div');
+            const heartSymbols = ['❤️', '💕', '💖', '💗', '💝', '💘'];
+            
+            heart.className = 'heart';
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            
+            heartContainer.appendChild(heart);
+            
+
+            setTimeout(() => {
+                heart.remove();
+            }, 20000);
+        }
+
+        
+        function createWineGlass() {
+            const heartContainer = document.getElementById('heartContainer');
+            const wine = document.createElement('div');
+            
+            wine.className = 'wine-glass';
+            wine.textContent = '🍷';
+            wine.style.left = Math.random() * 100 + '%';
+            wine.style.animationDuration = (Math.random() * 15 + 15) + 's';
+            wine.style.animationDelay = Math.random() * 5 + 's';
+            
+            heartContainer.appendChild(wine);
+            
+            setTimeout(() => {
+                wine.remove();
+            }, 25000);
+        }
+
+        // Create sparkles
+        function createSparkle() {
+            const heartContainer = document.getElementById('heartContainer');
+            const sparkle = document.createElement('div');
+            
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            
+            heartContainer.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 3000);
+        }
+
+        // Initialize animations
+        function initAnimations() {
+            // Create initial batch
+            for (let i = 0; i < 15; i++) {
+                setTimeout(createHeart, i * 500);
+            }
+            
+            for (let i = 0; i < 5; i++) {
+                setTimeout(createWineGlass, i * 1000);
+            }
+
+            for (let i = 0; i < 20; i++) {
+                setTimeout(createSparkle, i * 300);
+            }
+
+            // Continuous creation
+            setInterval(createHeart, 2000);
+            setInterval(createWineGlass, 4000);
+            setInterval(createSparkle, 1000);
+        }
+
+        // Reveal hidden message
+        function revealMessage() {
+            const hiddenMessage = document.getElementById('hiddenMessage');
+            hiddenMessage.classList.add('show');
+            
+            // Create extra hearts when button is clicked
+            for (let i = 0; i < 10; i++) {
+                setTimeout(createHeart, i * 100);
+            }
+        }
+
+        // Start animations when page loads
+        window.addEventListener('load', initAnimations);
+
+        // Add touch feedback for mobile
+        document.querySelector('.love-button').addEventListener('touchstart', function() {
+            this.style.transform = 'scale(0.95)';
+        });
+
+        document.querySelector('.love-button').addEventListener('touchend', function() {
+            this.style.transform = 'scale(1)';
+        });
+    </script>
+</body>
+</html>
