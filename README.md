@@ -47,11 +47,9 @@ A heartfelt, interactive Valentine's Day webpage designed for those spending the
 
 ## 🚀 Live Demo
 
-[View Live Demo](https://yourusername.github.io/valentine-gift/) _(Replace with your actual GitHub Pages URL)_
+[View Live Demo](https://Samuel-Nwankwere.github.io/valentine-gift-public/) _(Replace with your actual GitHub Pages URL)_
 
 ## 📸 Screenshots
-
-
 
 ## 🛠️ Technologies Used
 
@@ -77,16 +75,16 @@ A heartfelt, interactive Valentine's Day webpage designed for those spending the
 
 ### Option 2: Clone Repository
 ```bash
-git clone https://github.com/yourusername/valentine-gift.git
+git clone https://github.com/yourusername/valentine-gift-public.git
 cd valentine-gift
-# Open valentine-gift.html in your browser
+# Open valentine-gift-public.html in your browser
 ```
 
 ### Option 3: Deploy to GitHub Pages
 1. Fork this repository
 2. Go to Settings → Pages
 3. Select main branch as source
-4. Your site will be live at `https://yourusername.github.io/valentine-gift/`
+4. Your site will be live at `https://yourusername.github.io/valentine-gift-public/`
 
 ## 🌐 Hosting Options
 
@@ -159,11 +157,10 @@ This project is licensed under the MIT License - feel free to use, modify, and d
 
 ## 📧 Contact
 
-Created with 💕 by [Your Name]
+Created with Love by [Samuel Nwankwere]
 
-- GitHub: [@yourusername](https://github.com/yourusername)
-- Twitter: [@yourhandle](https://twitter.com/yourhandle)
-- Email: your.email@example.com
+- GitHub:(https://github.com/Samuel-Nwankwere)
+- Email: Samuelnwankwere@gmail.com
 
 ## 🌟 Show Your Support
 
